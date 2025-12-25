@@ -8,7 +8,7 @@
 (async function scrapeEuro() {
     // Configuration
     const CATEGORY = "telefony-komorkowe";
-    const BATCH_SIZE = 30; // Number of items per request
+    const BATCH_SIZE = 20; // Number of items per request
     
     // Store results here
     let allProducts = [];
@@ -22,7 +22,7 @@
     while (keepFetching) {
         // Construct the API URL dynamically
         // We use the same parameters your browser used, but we change 'startFrom'
-        const url = `https://www.euro.com.pl/rest/api/products/search?category=${CATEGORY}&orderBy=POPULARITY&direction=ASC&startFrom=${offset}&numberOfItems=${BATCH_SIZE}&developSearchMode=false`;
+        const url = `https://www.euro.com.pl/rest/api/products/search?category=${CATEGORY}&orderBy=POPULARITY&direction=ASC&startFrom=${offset}&numberOfItems=${BATCH_SIZE}&_a=1&developSearchMode=false`;
 
         try {
             console.log(`%c📡 Fetching items ${offset} to ${offset + BATCH_SIZE}...`, "color: cyan");
